@@ -3,11 +3,11 @@
   "rewrites": [
     {
       "source": "/sitemap.xml",
-      "destination": "https://living-result-backend-production.up.railway.app/sitemap.xml"
+      "destination": "https://fitx-health-backend-production.up.railway.app/sitemap.xml"
     },
     {
       "source": "/api/:path*",
-      "destination": "https://living-result-backend-production.up.railway.app/api/:path*"
+      "destination": "https://fitx-health-backend-production.up.railway.app/api/:path*"
     }
   ]
 }

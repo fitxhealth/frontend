@@ -2,16 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 import ProductsSection from '@/components/ProductsSection';
-import AIRecommender from '@/components/AIRecommender';
 import { getProducts, getCombos } from '@/lib/api';
 
 
 export const metadata = {
-  title: 'Living Result | #WEARETHELIVINGRESULT',
+  title: 'FitX Health | #WEARETHEfitxhealth',
   description:
-    "Living Result — Premium fitness supplements. Stop guessing, start growing. Shop Whey Protein, Mass Gainer, Creatine and more at India's lowest prices.",
+    "FitX Health — Premium fitness supplements. Stop guessing, start growing. Shop Whey Protein, Mass Gainer, Creatine and more at India's lowest prices.",
   alternates: {
-    canonical: 'https://www.getlivingresult.in',
+    canonical: 'https://www.getfitxhealth.in',
   },
 };
 
@@ -27,28 +26,28 @@ export default async function HomePage() {
     '@graph': [
       {
         '@type': 'Organization',
-        '@id': 'https://www.getlivingresult.in/#organization',
-        name: 'Living Result',
-        url: 'https://www.getlivingresult.in',
-        logo: 'https://www.getlivingresult.in/images/logo.webp',
+        '@id': 'https://www.getfitxhealth.in/#organization',
+        name: 'FitX Health',
+        url: 'https://www.getfitxhealth.in',
+        logo: 'https://www.getfitxhealth.in/images/logo.webp',
         sameAs: [
-          'https://www.instagram.com/getlivingresult',
-          'https://www.facebook.com/getlivingresult'
+          'https://www.instagram.com/getfitxhealth',
+          'https://www.facebook.com/getfitxhealth'
         ]
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://www.getlivingresult.in/#website',
-        url: 'https://www.getlivingresult.in',
-        name: 'Living Result',
+        '@id': 'https://www.getfitxhealth.in/#website',
+        url: 'https://www.getfitxhealth.in',
+        name: 'FitX Health',
         publisher: {
-          '@id': 'https://www.getlivingresult.in/#organization'
+          '@id': 'https://www.getfitxhealth.in/#organization'
         },
         potentialAction: {
           '@type': 'SearchAction',
           target: {
             '@type': 'EntryPoint',
-            urlTemplate: 'https://www.getlivingresult.in/search?q={search_term_string}'
+            urlTemplate: 'https://www.getfitxhealth.in/search?q={search_term_string}'
           },
           'query-input': 'required name=search_term_string'
         }
@@ -113,8 +112,6 @@ export default async function HomePage() {
         combos={combos}
       />
 
-      {/* AI PRODUCT ADVISOR */}
-      <AIRecommender />
 
       {/* WHY US DETAILED */}
       <section className="why-us-detailed">
@@ -124,7 +121,7 @@ export default async function HomePage() {
               <Image src="/images/why-us-image.webp" alt="Athlete holding a supplement tub" width={600} height={600} style={{ borderRadius: 'var(--radius-lg)', boxShadow: '0 10px 40px rgba(0,0,0,0.6)', width: '100%', height: 'auto' }} />
             </div>
             <div className="why-us-content">
-              <p className="section-label">The Living Result Difference</p>
+              <p className="section-label">The FitX Health Difference</p>
               <h2 className="section-title">CURATED FOR THE 1%<br />WHO REFUSE TO SETTLE.</h2>
               <div className="why-us-points">
                 <div className="why-us-point">
@@ -200,7 +197,7 @@ export default async function HomePage() {
             <h2 className="section-title">STOP GUESSING. START GROWING.</h2>
             <p>Your dedication deserves more than trial and error. You don&apos;t have time to test hundreds of mediocre supplements across different websites. We do the heavy lifting for you.</p>
             <p>We test it, we verify it, and we bring you only the absolute best. Because at the end of the day—</p>
-            <span className="hashtag">#WEARETHELIVINGRESULT</span>
+            <span className="hashtag">#WEARETHEfitxhealth</span>
             <Link href="#products" className="btn-secondary">
               Browse The Arsenal
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -223,7 +220,7 @@ export default async function HomePage() {
           <div className="testimonials-grid">
             {[
               { name: 'Rohit Sharma', role: 'Bodybuilder', initial: 'R', text: '"Best quality supplements at the best price. Results speak for themselves!"' },
-              { name: 'Kunal Rawat', role: 'Fitness Athlete', initial: 'K', text: '"ISO Plasma is next level. Fast recovery, pure gains. Living Result is my go-to brand."' },
+              { name: 'Kunal Rawat', role: 'Fitness Athlete', initial: 'K', text: '"ISO Plasma is next level. Fast recovery, pure gains. FitX Health is my go-to brand."' },
               { name: 'Arjun Mehta', role: 'Gym Enthusiast', initial: 'A', text: '"Affordable and authentic. The Mass Gainer helped me put on 8kg in 3 months. Highly recommend!"' },
             ].map((t) => (
               <div className="testimonial-card" key={t.name}>
@@ -290,7 +287,7 @@ export default async function HomePage() {
               </svg>
               Chat on WhatsApp
             </a>
-            <a href="https://ig.me/m/livingresult_official" className="btn-secondary" target="_blank" rel="noopener noreferrer" style={{ padding: '16px 32px', fontSize: '16px', borderColor: '#E1306C', color: '#E1306C' }}>
+            <a href="https://ig.me/m/fitxhealth_official" className="btn-secondary" target="_blank" rel="noopener noreferrer" style={{ padding: '16px 32px', fontSize: '16px', borderColor: '#E1306C', color: '#E1306C' }}>
               DM us on Instagram
             </a>
           </div>

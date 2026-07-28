@@ -8,7 +8,7 @@ import { getProductBySlug, getProducts, getComboBySlug } from '@/lib/api';
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
-  if (!product) return { title: 'Product Not Found | Living Result' };
+  if (!product) return { title: 'Product Not Found | FitX Health' };
 
   const price = product.finalPrice || product.sizes?.[0]?.price || product.flavors?.[0]?.price || product.price || 0;
   let image = product.flavors?.[0]?.image
@@ -22,23 +22,23 @@ export async function generateMetadata({ params }) {
   const optimizedImage = image.startsWith('http') ? image : image.replace(/\.png$/i, '.webp');
 
   return {
-    title: `${product.name} | Living Result`,
+    title: `${product.name} | FitX Health`,
     description: product.description
       ? product.description.slice(0, 155)
-      : `Buy ${product.name} at the best price — ₹${price.toLocaleString()}. 100% authentic, fast delivery. Shop now at Living Result.`,
+      : `Buy ${product.name} at the best price — ₹${price.toLocaleString()}. 100% authentic, fast delivery. Shop now at FitX Health.`,
     alternates: {
-      canonical: `https://www.getlivingresult.in/product/${slug}`,
+      canonical: `https://www.getfitxhealth.in/product/${slug}`,
     },
     openGraph: {
-      title: `${product.name} | Living Result`,
+      title: `${product.name} | FitX Health`,
       description: product.description?.slice(0, 155),
       images: [{ url: optimizedImage, width: 800, height: 800, alt: product.name }],
       type: 'website',
-      siteName: 'Living Result',
+      siteName: 'FitX Health',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${product.name} | Living Result`,
+      title: `${product.name} | FitX Health`,
       description: product.description?.slice(0, 155),
       images: [optimizedImage],
     },
@@ -123,7 +123,7 @@ export default async function ProductPage({ params }) {
           {/* JSON-LD Structured Data for Google Shopping / Rich Results */}
           {(() => {
             // Build an absolute image URL (Google requires https://)
-            const BASE_URL = 'https://www.getlivingresult.in';
+            const BASE_URL = 'https://www.getfitxhealth.in';
             let rawImage = product.flavors?.[0]?.image || `/images/${product.slug}.webp`;
             if (rawImage.startsWith('http://res.cloudinary.com/')) {
               rawImage = rawImage.replace('http://', 'https://');
@@ -142,10 +142,10 @@ export default async function ProductPage({ params }) {
               name: product.name,
               description:
                 product.description ||
-                `Buy ${product.name} at Living Result — India's trusted supplement store. 100% authentic, fast delivery.`,
+                `Buy ${product.name} at FitX Health — India's trusted supplement store. 100% authentic, fast delivery.`,
               image: absoluteImage,
               sku: product.sku || product._id || product.slug,
-              brand: { '@type': 'Brand', name: 'Living Result' },
+              brand: { '@type': 'Brand', name: 'FitX Health' },
               offers: {
                 '@type': 'Offer',
                 url: `${BASE_URL}/product/${product.slug}`,
@@ -156,7 +156,7 @@ export default async function ProductPage({ params }) {
                 availability: isOutOfStock
                   ? 'https://schema.org/OutOfStock'
                   : 'https://schema.org/InStock',
-                seller: { '@type': 'Organization', name: 'Living Result' },
+                seller: { '@type': 'Organization', name: 'FitX Health' },
                 // shippingDetails omitted — charges vary per order, cannot be represented as a fixed value
                 hasMerchantReturnPolicy: {
                   '@type': 'MerchantReturnPolicy',

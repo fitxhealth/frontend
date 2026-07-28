@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import useCart from '@/lib/cartStore';
 import ImageGallery from './ImageGallery';
-import WishlistButton from './WishlistButton';
 import { subscribeToRestock, trackProductView, API_BASE } from '@/lib/api';
 
 function resolveImage(src) {
@@ -412,7 +411,6 @@ export default function ProductDetailClient({ product }) {
             {product.name}
           </h1>
           <div style={{ display: 'flex', gap: '8px' }}>
-            <WishlistButton productId={product._id || product.id} className="wishlist-btn-pdp" style={{ width: '40px', height: '40px' }} />
             <button
               onClick={() => {
               if (navigator.share) {
@@ -797,7 +795,7 @@ export default function ProductDetailClient({ product }) {
                   <td style={{ textAlign: 'right', textDecoration: 'line-through', color: 'var(--text-muted)', fontSize: '13px' }}>₹{finalOldPrice.toLocaleString()}</td>
                 </tr>
                 <tr>
-                  <td style={{ color: '#fff', fontWeight: 'bold', fontSize: '14px' }}>Living Result Price</td>
+                  <td style={{ color: '#fff', fontWeight: 'bold', fontSize: '14px' }}>FitX Health Price</td>
                   <td style={{ textAlign: 'right', color: 'var(--accent)', fontWeight: 'bold', fontSize: '16px' }}>₹{finalPrice.toLocaleString()}</td>
                 </tr>
               </tbody>

@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import useCart from '@/lib/cartStore';
-import useAuthStore from '@/lib/authStore';
 import { createOrder, getAddresses } from '@/lib/api';
 import { orderOnWhatsApp } from '@/lib/whatsapp';
 import PrivacyModal from './PrivacyModal';
@@ -14,8 +13,6 @@ export default function CheckoutModal({ isOpen, onClose, fomoSettings = {} }) {
   const items = useCart((s) => s.items);
   const clearCart = useCart((s) => s.clearCart);
   const getTotal = useCart((s) => s.getTotal);
-  const authUser = useAuthStore((s) => s.user);
-  const isLoggedIn = useAuthStore((s) => s.isLoggedIn);
   const [timerDisplay, setTimerDisplay] = useState('10:00');
   const [showSuccess, setShowSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,28 +20,14 @@ export default function CheckoutModal({ isOpen, onClose, fomoSettings = {} }) {
   const [privacyOpen, setPrivacyOpen] = useState(false);
   const timerRef = useRef(null);
   const total = getTotal();
-  const user = useAuthStore((s) => s.user);
-
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', address: '' });
 
-  // Pre-fill form if user is logged in
+  // (No user logic anymore)
   useEffect(() => {
-    if (isOpen && user) {
-      setFormData(prev => ({ ...prev, name: user.name || '', phone: user.phone || '', email: user.email || '' }));
-      getAddresses().then(res => {
-        if (res.success && res.data?.length > 0) {
-          const def = res.data.find(a => a.isDefault) || res.data[0];
-          let addrStr = `${def.house}`;
-          if (def.street) addrStr += `, ${def.street}`;
-          addrStr += `, ${def.city}, ${def.state} - ${def.pin}`;
-          if (def.landmark) addrStr += `\nLandmark: ${def.landmark}`;
-          setFormData(prev => ({ ...prev, address: addrStr }));
-        }
-      }).catch(() => {});
-    } else if (!isOpen) {
+    if (!isOpen) {
       setFormData({ name: '', phone: '', email: '', address: '' });
     }
-  }, [isOpen, user]);
+  }, [isOpen]);
 
   // FOMO countdown timer — persists in localStorage
   useEffect(() => {
@@ -127,7 +110,7 @@ export default function CheckoutModal({ isOpen, onClose, fomoSettings = {} }) {
       }
 
       // Build WhatsApp message
-      let msg = `🛒 *NEW ORDER — Living Result*\n🔖 *Order ID:* ${orderId}\n\n📦 *Items:*\n`;
+      let msg = `🛒 *NEW ORDER — FitX Health*\n🔖 *Order ID:* ${orderId}\n\n📦 *Items:*\n`;
       items.forEach((i) => {
         if (i.isCustomCombo) {
           msg += `\n🔥 *STACK LAB™ CUSTOM ORDER*\n\n`;
@@ -208,11 +191,6 @@ export default function CheckoutModal({ isOpen, onClose, fomoSettings = {} }) {
           </div>
 
           <form onSubmit={handleSubmit}>
-            {isLoggedIn && authUser && (
-              <div style={{ marginBottom: '15px', padding: '10px 14px', background: 'rgba(255,106,0,0.08)', border: '1px solid rgba(255,106,0,0.2)', borderRadius: '6px', fontSize: '12px', color: 'var(--text-secondary)' }}>
-                ✅ Logged in as <strong style={{ color: 'var(--accent)' }}>{authUser.name}</strong> — details pre-filled below (you can edit)
-              </div>
-            )}
             <div style={{ marginBottom: '15px' }}>
               <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '5px' }}>Full Name</label>
               <input name="checkoutName" type="text" required style={inputStyle} value={formData.name} onChange={e => setFormData(f => ({...f, name: e.target.value}))} />

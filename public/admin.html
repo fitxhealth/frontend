@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <meta name="description" content="Living Result admin portal for inventory, settings, and order management.">
-    <title>Living Result | Admin Panel</title>
+    <meta name="description" content="FitX Health admin portal for inventory, settings, and order management.">
+    <title>FitX Health | Admin Panel</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico?v=2">
     <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon.png?v=2">
     <link rel="apple-touch-icon" href="/images/favicon.png?v=2">
@@ -1531,7 +1531,7 @@
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
-            link.download = `living_result_insights_${new Date().toISOString().split('T')[0]}.csv`;
+            link.download = `fitx_health_insights_${new Date().toISOString().split('T')[0]}.csv`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);

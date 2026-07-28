@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import AccountDropdown from './AccountDropdown';
 
 export default function Navbar({ cartCount = 0, onSearchOpen, onCartOpen, onAuthOpen }) {
   const pathname = usePathname();
@@ -69,7 +68,7 @@ export default function Navbar({ cartCount = 0, onSearchOpen, onCartOpen, onAuth
           >
             <Image
               src="/images/logo.webp"
-              alt="Living Result"
+              alt="FitX Health"
               width={130}
               height={130}
               className="logo-img"
@@ -101,8 +100,6 @@ export default function Navbar({ cartCount = 0, onSearchOpen, onCartOpen, onAuth
               </svg>
             </button>
 
-            {/* Account */}
-            <AccountDropdown onAuthOpen={onAuthOpen} />
 
             {/* Cart */}
             <button aria-label="Cart" id="cartBtn" onClick={onCartOpen} style={{ position: 'relative' }}>

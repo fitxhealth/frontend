@@ -18,7 +18,7 @@ export default function Footer() {
           <p style={{ fontWeight: 'bold', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '15px', fontSize: '20px' }}>
             WE ARE AN INDEPENDENT RESELLER
           </p>
-          <p>&quot;Living Result was built to make fitness supplements more affordable and accessible. We believe honest pricing, practical guidance, and consistency create real results.&quot;</p>
+          <p>&quot;FitX Health was built to make fitness supplements more affordable and accessible. We believe honest pricing, practical guidance, and consistency create real results.&quot;</p>
         </div>
       </div>
 
@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="footer-logo">
               <Image
                 src="/images/logo.webp"
-                alt="Living Result"
+                alt="FitX Health"
                 width={80}
                 height={80}
                 style={{ height: '80px', width: 'auto', objectFit: 'contain' }}
@@ -60,7 +60,7 @@ export default function Footer() {
 
           <div className="footer-disclaimer">
             <p>
-              Disclaimer: Living Result products are dietary supplements intended to support fitness goals when combined
+              Disclaimer: FitX Health products are dietary supplements intended to support fitness goals when combined
               with proper diet, training, hydration, and sleep. Results may vary from person to person based on body type,
               lifestyle, consistency, and genetics. These products are not medicines and are not intended to diagnose,
               treat, cure, or prevent any disease. Please consult a healthcare professional before use if you have any
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-copy">
-            &copy; 2026 Living Result. All rights reserved. | #WEARETHELIVINGRESULT
+            &copy; 2026 FitX Health. All rights reserved. | #WEARETHEfitxhealth
           </div>
         </div>
       </footer>

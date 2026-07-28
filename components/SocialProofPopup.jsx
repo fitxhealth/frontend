@@ -96,7 +96,7 @@ export default function SocialProofPopup({ enabled = true, interval = 35 }) {
         </div>
         <div>
           <div style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-primary)', marginBottom: '2px' }}>{message}</div>
-          <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Living Result</div>
+          <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>FitX Health</div>
         </div>
       </div>
     </div>

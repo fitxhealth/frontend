@@ -2,12 +2,12 @@ import './globals.css';
 import AppShell from '@/components/AppShell';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
-const SITE_URL = 'https://www.getlivingresult.in';
+const SITE_URL = 'https://www.getfitxhealth.in';
 
 export const metadata = {
-  title: 'Living Result | #WEARETHELIVINGRESULT',
+  title: 'FitX Health | #WEARETHEfitxhealth',
   description:
-    "Living Result — Premium fitness supplements. We don't just sell supplements, we LIVE the results. Shop Whey Protein, Mass Gainer, Creatine and more.",
+    "FitX Health — Premium fitness supplements. We don't just sell supplements, we LIVE the results. Shop Whey Protein, Mass Gainer, Creatine and more.",
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: '/',
@@ -20,16 +20,16 @@ export const metadata = {
     apple: '/images/favicon.png',
   },
   openGraph: {
-    title: 'Living Result | #WEARETHELIVINGRESULT',
-    description: "Living Result — Premium fitness supplements. We don't just sell supplements, we LIVE the results.",
+    title: 'FitX Health | #WEARETHEfitxhealth',
+    description: "FitX Health — Premium fitness supplements. We don't just sell supplements, we LIVE the results.",
     url: SITE_URL,
-    siteName: 'Living Result',
+    siteName: 'FitX Health',
     images: [
       {
         url: '/images/logo.webp',
         width: 1200,
         height: 630,
-        alt: 'Living Result Logo',
+        alt: 'FitX Health Logo',
       },
     ],
     locale: 'en_IN',
@@ -37,8 +37,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Living Result | #WEARETHELIVINGRESULT',
-    description: "Living Result — Premium fitness supplements.",
+    title: 'FitX Health | #WEARETHEfitxhealth',
+    description: "FitX Health — Premium fitness supplements.",
     images: ['/images/logo.webp'],
   },
 };

@@ -254,8 +254,8 @@ export default function ProductsSection({ uniqueProducts = [], commonProducts = 
               <div style={{ display: 'flex', gap: '10px' }}>
                 <button
                   onClick={async () => {
-                    const url = 'https://www.getlivingresult.in/stack-lab';
-                    const text = '🧪 Build your own custom supplement stack at Living Result Stack Lab™ — exclusively here! Pick your fuel, boost and flavors.';
+                    const url = 'https://www.getfitxhealth.in/stack-lab';
+                    const text = '🧪 Build your own custom supplement stack at FitX Health Stack Lab™ — exclusively here! Pick your fuel, boost and flavors.';
                     if (navigator.share) {
                       try { await navigator.share({ title: 'Stack Lab™', text, url }); return; } catch (_) {}
                     }

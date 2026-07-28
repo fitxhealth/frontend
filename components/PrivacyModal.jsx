@@ -12,7 +12,7 @@ export default function PrivacyModal({ isOpen, onClose }) {
         </h2>
         <div style={{ color: 'var(--text-secondary)', lineHeight: '1.8', fontSize: '15px', overflowY: 'auto', maxHeight: '60vh', paddingRight: '10px' }}>
           <h4 style={{ color: 'var(--text-primary)', marginBottom: '10px' }}>1. Introduction</h4>
-          <p style={{ marginBottom: '20px' }}>Welcome to Living Result. These Terms and Privacy Policy govern your use of our website and services. By using our website, you agree to these terms.</p>
+          <p style={{ marginBottom: '20px' }}>Welcome to FitX Health. These Terms and Privacy Policy govern your use of our website and services. By using our website, you agree to these terms.</p>
 
           <h4 style={{ color: 'var(--text-primary)', marginBottom: '10px' }}>2. Shipping & Delivery Terms (IMPORTANT)</h4>
           <p style={{ marginBottom: '20px' }}>
@@ -29,10 +29,10 @@ export default function PrivacyModal({ isOpen, onClose }) {
           <p style={{ marginBottom: '20px' }}>Your data privacy is important to us. We do not sell or share your personal information with third parties except as necessary to fulfill your orders (e.g., shipping partners).</p>
 
           <h4 style={{ color: 'var(--text-primary)', marginBottom: '10px' }}>5. Pricing and Price Match</h4>
-          <p style={{ marginBottom: '20px' }}>We strive to provide the lowest prices. Our price match guarantee is valid only for identical products of the exact same quality and brand found on legitimate competitor platforms. Living Result reserves the right to verify the competitor&apos;s price and availability before matching.</p>
+          <p style={{ marginBottom: '20px' }}>We strive to provide the lowest prices. Our price match guarantee is valid only for identical products of the exact same quality and brand found on legitimate competitor platforms. FitX Health reserves the right to verify the competitor&apos;s price and availability before matching.</p>
 
           <h4 style={{ color: 'var(--text-primary)', marginBottom: '10px' }}>6. Disclaimers</h4>
-          <p style={{ marginBottom: '20px' }}>Living Result products are dietary supplements and are not intended to diagnose, treat, cure, or prevent any disease. Results may vary from person to person. Please consult a healthcare professional before use.</p>
+          <p style={{ marginBottom: '20px' }}>FitX Health products are dietary supplements and are not intended to diagnose, treat, cure, or prevent any disease. Results may vary from person to person. Please consult a healthcare professional before use.</p>
         </div>
       </div>
     </div>

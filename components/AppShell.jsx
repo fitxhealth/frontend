@@ -12,17 +12,11 @@ import MobileTrustRow from './MobileTrustRow';
 import WhatsAppQuickBuy from './WhatsAppQuickBuy';
 import useCart from '@/lib/cartStore';
 import useSettings from '@/lib/useSettings';
-import useAuthStore from '@/lib/authStore';
-import dynamic from 'next/dynamic';
-
-const AuthModal = dynamic(() => import('./AuthModal'), { ssr: false });
 
 export default function AppShell({ children }) {
   const [mounted, setMounted] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [authOpen, setAuthOpen] = useState(false);
-  const [authModalLoaded, setAuthModalLoaded] = useState(false);
 
   const getTotalItems = useCart((s) => s.getTotalItems);
   const migrateLegacyCart = useCart((s) => s.migrateLegacyCart);
@@ -30,21 +24,12 @@ export default function AppShell({ children }) {
   const openCart = useCart((s) => s.openCart);
   const closeCart = useCart((s) => s.closeCart);
   const { noticeStrip, isLaunched, fomoSettings } = useSettings();
-  const fetchMe = useAuthStore((s) => s.fetchMe);
   const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
     migrateLegacyCart();
-    fetchMe(); // Hydrate authentication only once
-
-    const handleOpenAuth = () => {
-      setAuthModalLoaded(true);
-      setAuthOpen(true);
-    };
-    window.addEventListener('open-auth', handleOpenAuth);
-    return () => window.removeEventListener('open-auth', handleOpenAuth);
-  }, [migrateLegacyCart, fetchMe]);
+  }, [migrateLegacyCart]);
 
   const totalItems = mounted ? getTotalItems() : 0;
 
@@ -91,10 +76,6 @@ export default function AppShell({ children }) {
         cartCount={totalItems}
         onSearchOpen={() => setSearchOpen(true)}
         onCartOpen={openCart}
-        onAuthOpen={() => {
-          setAuthModalLoaded(true);
-          setAuthOpen(true);
-        }}
       />
 
       {/* WHATSAPP QUICK BUY (Mobile Only) */}
@@ -158,14 +139,7 @@ export default function AppShell({ children }) {
         </button>
       )}
 
-      {/* AUTH MODAL (Lazily Loaded) */}
-      {mounted && authModalLoaded && (
-        <AuthModal
-          isOpen={authOpen}
-          onClose={() => setAuthOpen(false)}
-          onSuccess={() => setAuthOpen(false)}
-        />
-      )}
+
 
       {/* PAGE CONTENT */}
       {children}
