@@ -154,9 +154,7 @@ export default function StackLabPage({ products = [] }) {
           </div>
         </div>
       </section>
-
-
-
+      <div className="container" style={{ padding: '40px 0' }}>
         {/* ── The Configurator ── */}
         <ComboConfigurator products={products} />
       </div>
