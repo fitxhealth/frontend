@@ -131,7 +131,7 @@ export default function ProductDetailClient({ product }) {
     let trackPrice = displayPrice;
 
     // Check if there was a deferred view tracking from sessionStorage
-    const pendingViewStr = sessionStorage.getItem('lr_pending_view_event');
+    const pendingViewStr = sessionStorage.getItem('fx_pending_view_event');
     if (pendingViewStr) {
       try {
         const pendingView = JSON.parse(pendingViewStr);
@@ -142,7 +142,7 @@ export default function ProductDetailClient({ product }) {
           trackPrice = pendingView.price || trackPrice;
         }
       } catch (_) {}
-      sessionStorage.removeItem('lr_pending_view_event');
+      sessionStorage.removeItem('fx_pending_view_event');
     }
 
     // Call the backend API (only if it is a standard MongoDB 24-character hex ID, since combos don't support backend views)

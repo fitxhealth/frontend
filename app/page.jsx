@@ -6,9 +6,9 @@ import { getProducts, getCombos } from '@/lib/api';
 
 
 export const metadata = {
-  title: 'FitX Health | #WEARETHEfitxhealth',
+  title: 'FitX Health | Engineered For Elite Performance',
   description:
-    "FitX Health — Premium fitness supplements. Stop guessing, start growing. Shop Whey Protein, Mass Gainer, Creatine and more at India's lowest prices.",
+    "FitX Health — Premium fitness supplements. Shop authentic Whey Protein, Mass Gainer, Creatine and more.",
   alternates: {
     canonical: 'https://www.getfitxhealth.in',
   },
@@ -29,7 +29,7 @@ export default async function HomePage() {
         '@id': 'https://www.getfitxhealth.in/#organization',
         name: 'FitX Health',
         url: 'https://www.getfitxhealth.in',
-        logo: 'https://www.getfitxhealth.in/images/logo.webp',
+        logo: 'https://www.getfitxhealth.in/images/logo-removebg.png',
         sameAs: [
           'https://www.instagram.com/getfitxhealth',
           'https://www.facebook.com/getfitxhealth'
@@ -63,43 +63,50 @@ export default async function HomePage() {
       />
       {/* PRE-LAUNCH OVERLAY placeholder — wired via AppShell/useSettings in layout */}
 
-      {/* HERO */}
-      <section className="hero" id="hero">
-        <div className="hero-bg">
+      {/* HERO SECTION REDESIGNED */}
+      <section className="hero-redesign" id="hero" style={{ position: 'relative', minHeight: '90vh', display: 'flex', alignItems: 'center', overflow: 'hidden', backgroundColor: 'var(--bg-primary)' }}>
+        <div className="hero-redesign-bg" style={{ position: 'absolute', inset: 0, opacity: 0.6 }}>
           <Image
             src="/images/hero-athlete.webp"
-            alt="Muscular athlete in dramatic lighting"
+            alt="FitX Health Athlete"
             fill
-            style={{ objectFit: 'cover', objectPosition: 'center top' }}
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
             priority
           />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, var(--bg-primary) 0%, rgba(5,5,5,0.7) 50%, transparent 100%)' }} />
         </div>
-        <div className="container">
-          <div className="hero-content">
-            <h1 className="hero-tagline">
-              FORGE YOUR LEGACY.<br />BECOME THE{' '}
-              <span className="highlight">RESULT.</span>
+        
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+          <div className="hero-redesign-content" style={{ maxWidth: '650px', padding: '100px 0' }}>
+            <span style={{ display: 'inline-block', padding: '6px 12px', background: 'var(--accent-primary)', color: '#fff', fontSize: '12px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '20px', borderRadius: '4px' }}>
+              Elite Performance Fuel
+            </span>
+            <h1 style={{ fontSize: 'clamp(40px, 6vw, 72px)', lineHeight: 1.1, fontWeight: 800, textTransform: 'uppercase', marginBottom: '24px', letterSpacing: '-1px' }}>
+              Push Your Limits. <br/><span style={{ color: 'var(--accent-primary)' }}>Define Your Legacy.</span>
             </h1>
-            <p className="hero-subtext">
-              Stop wasting time guessing what works. We curate only the highest-grade,
-              lab-tested supplements on the market so you don&apos;t have to look anywhere else.
+            <p style={{ fontSize: '18px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '40px', maxWidth: '500px' }}>
+              Scientifically-backed, 100% authentic supplements curated for athletes who demand the absolute best from their bodies.
             </p>
-            <ul className="hero-benefits">
-              <li>✓ Premium Selection</li>
-              <li>✓ 100% Authentic</li>
-              <li>✓ Lowest Price Guarantee</li>
-            </ul>
-            <div className="hero-cta-group">
-              <Link href="#products" className="btn-primary">
-                Start Your Transformation
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
+            
+            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap' }}>
+              <a href="#products" style={{ display: 'inline-flex', padding: '16px 32px', background: 'var(--accent-primary)', color: '#fff', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', borderRadius: '4px', transition: 'all 0.3s' }}>
+                Shop Collection
+              </a>
+              <Link href="/stack-lab" style={{ display: 'inline-flex', padding: '16px 32px', border: '1px solid var(--border)', color: 'var(--text-primary)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', borderRadius: '4px', transition: 'all 0.3s', backgroundColor: 'rgba(255,255,255,0.05)' }}>
+                Build Your Stack
               </Link>
-              <Link href="#products" className="btn-secondary">
-                View All Products
-              </Link>
+            </div>
+            
+            <div style={{ display: 'flex', gap: '30px', marginTop: '60px', borderTop: '1px solid var(--border)', paddingTop: '30px' }}>
+              <div>
+                <strong style={{ display: 'block', fontSize: '24px', color: 'var(--accent-primary)' }}>100%</strong>
+                <span style={{ fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>Authentic</span>
+              </div>
+              <div>
+                <strong style={{ display: 'block', fontSize: '24px', color: 'var(--accent-primary)' }}>Lab</strong>
+                <span style={{ fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>Tested</span>
+              </div>
+
             </div>
           </div>
         </div>
@@ -113,34 +120,7 @@ export default async function HomePage() {
       />
 
 
-      {/* WHY US DETAILED */}
-      <section className="why-us-detailed">
-        <div className="container">
-          <div className="why-us-grid">
-            <div className="why-us-image">
-              <Image src="/images/why-us-image.webp" alt="Athlete holding a supplement tub" width={600} height={600} style={{ borderRadius: 'var(--radius-lg)', boxShadow: '0 10px 40px rgba(0,0,0,0.6)', width: '100%', height: 'auto' }} />
-            </div>
-            <div className="why-us-content">
-              <p className="section-label">The FitX Health Difference</p>
-              <h2 className="section-title">CURATED FOR THE 1%<br />WHO REFUSE TO SETTLE.</h2>
-              <div className="why-us-points">
-                <div className="why-us-point">
-                  <h4>THE BEST OF THE BEST.</h4>
-                  <p>Overwhelmed by endless choices on other platforms? We cut through the noise. Here, you will only find the elite, proven winners for each category so you don&apos;t have to look around.</p>
-                </div>
-                <div className="why-us-point">
-                  <h4>100% LAB-TESTED QUALITY.</h4>
-                  <p>We provide the highest grade products on the market. Every supplement is rigorously tested, trusted, and used by us. If it doesn&apos;t produce real results, we don&apos;t sell it.</p>
-                </div>
-                <div className="why-us-point">
-                  <h4>OUR UNBEATABLE PROMISE.</h4>
-                  <p>You won&apos;t find such high-grade products at these prices anywhere else. If you do find the exact same product cheaper on the market, show us, and we will give it to you at a lower price.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* STATS */}
       <section className="stats" id="stats">
@@ -186,31 +166,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* WHY CHOOSE */}
-      <section className="why-choose" id="why-choose">
-        <div className="why-bg">
-          <Image src="/images/why-choose-athlete.webp" alt="Athlete with orange paint effect" fill style={{ objectFit: 'cover' }} />
-        </div>
-        <div className="container">
-          <div className="why-content">
-            <p className="section-label">Your Ultimate Shortcut</p>
-            <h2 className="section-title">STOP GUESSING. START GROWING.</h2>
-            <p>Your dedication deserves more than trial and error. You don&apos;t have time to test hundreds of mediocre supplements across different websites. We do the heavy lifting for you.</p>
-            <p>We test it, we verify it, and we bring you only the absolute best. Because at the end of the day—</p>
-            <span className="hashtag">#WEARETHEfitxhealth</span>
-            <Link href="#products" className="btn-secondary">
-              Browse The Arsenal
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </Link>
-            <div id="emotionalMessaging" style={{ marginTop: '30px', fontSize: '15px', fontWeight: '600', color: 'var(--accent)', fontStyle: 'italic', letterSpacing: '1px', minHeight: '24px' }}>
-              Serious results start with serious decisions.
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* TESTIMONIALS */}
       <section className="testimonials" id="testimonials">
@@ -219,9 +175,9 @@ export default async function HomePage() {
           <h2 className="section-title">What Our Customers Say</h2>
           <div className="testimonials-grid">
             {[
-              { name: 'Rohit Sharma', role: 'Bodybuilder', initial: 'R', text: '"Best quality supplements at the best price. Results speak for themselves!"' },
-              { name: 'Kunal Rawat', role: 'Fitness Athlete', initial: 'K', text: '"ISO Plasma is next level. Fast recovery, pure gains. FitX Health is my go-to brand."' },
-              { name: 'Arjun Mehta', role: 'Gym Enthusiast', initial: 'A', text: '"Affordable and authentic. The Mass Gainer helped me put on 8kg in 3 months. Highly recommend!"' },
+              { name: 'Vikram S.', role: 'Bodybuilder', initial: 'V', text: '"FitX Health has been a game changer for my prep. The authenticity of the supplements is guaranteed, and the delivery is always spot on."' },
+              { name: 'Anjali Desai', role: 'Crossfit Athlete', initial: 'A', text: '"I love the custom stack builder! It helped me figure out exactly what I needed for endurance. Truly a premium experience."' },
+              { name: 'Siddharth Roy', role: 'Gym Enthusiast', initial: 'S', text: '"Finally a reliable supplement store. The products are genuine, the prices are fair, and the results speak for themselves."' },
             ].map((t) => (
               <div className="testimonial-card" key={t.name}>
                 <div className="testimonial-stars">★★★★★</div>
@@ -254,9 +210,7 @@ export default async function HomePage() {
                 <p>ON BULK ORDERS</p>
               </div>
             </div>
-            <div className="benefit-middle-text highlight-glow">
-              &quot;You won&apos;t find this level of affordability, trust, safety, and results at this price anywhere else.&quot;
-            </div>
+
             <div className="benefit-item">
               <div className="benefit-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -281,14 +235,19 @@ export default async function HomePage() {
             Have questions about our products, your order, or need fitness advice? Reach out to us directly!
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
-            <a href="https://wa.me/917003714398" className="btn-primary" target="_blank" rel="noopener noreferrer" style={{ padding: '16px 32px', fontSize: '16px', background: '#25D366', boxShadow: '0 4px 20px rgba(37,211,102,0.3)' }}>
+            <a href="https://wa.me/918777739621" className="btn-primary" target="_blank" rel="noopener noreferrer" style={{ padding: '16px 32px', fontSize: '16px', background: '#25D366', boxShadow: '0 4px 20px rgba(37,211,102,0.3)', display: 'inline-flex', alignItems: 'center' }}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '10px' }}>
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.49l4.625-1.472A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.587-5.932-1.61l-.425-.253-2.742.874.87-2.675-.277-.44A9.77 9.77 0 012.182 12c0-5.423 4.395-9.818 9.818-9.818S21.818 6.577 21.818 12s-4.395 9.818-9.818 9.818z" />
               </svg>
               Chat on WhatsApp
             </a>
-            <a href="https://ig.me/m/fitxhealth_official" className="btn-secondary" target="_blank" rel="noopener noreferrer" style={{ padding: '16px 32px', fontSize: '16px', borderColor: '#E1306C', color: '#E1306C' }}>
-              DM us on Instagram
+            <a href="https://www.instagram.com/fitxhealth.in?igsh=MTdrdzk4dTM0amtxeA==" className="btn-secondary" target="_blank" rel="noopener noreferrer" style={{ padding: '16px 32px', fontSize: '16px', border: '1px solid #E1306C', color: '#E1306C', display: 'inline-flex', alignItems: 'center' }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '10px' }}>
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              Follow us on Instagram
             </a>
           </div>
         </div>

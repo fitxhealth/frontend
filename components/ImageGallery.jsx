@@ -42,7 +42,7 @@ export default function ImageGallery({ images = [], flavors = [], selectedFlavor
   }, [selectedFlavorIndex]);
 
   const total = allImages.length;
-  const displayImages = total > 0 ? allImages.map(img => img ? img.replace(/\.png$/i, '.webp') : img) : ['/images/logo.webp'];
+  const displayImages = total > 0 ? allImages.map(img => img ? img.replace(/\.png$/i, '.webp') : img) : ['/images/logo-removebg.png'];
   const displayTotal = displayImages.length;
 
   const goTo = (idx) => setActiveIndex((idx + displayTotal) % displayTotal);

@@ -42,7 +42,7 @@ function getPrice(p, sIdx, fIdx) {
 }
 
 function getImg(p, fIdx = 0) {
-  if (!p) return '/images/logo.webp';
+  if (!p) return '/images/logo-removebg.png';
   let img = p.flavors?.[fIdx]?.image || p.flavors?.[0]?.image || `/images/${p.slug}.webp`;
   if (!img) return img;
   if (img.startsWith('http')) {
@@ -567,7 +567,7 @@ export default function ComboConfigurator({ products = [] }) {
       <div style={{ textAlign: 'center', marginBottom: '40px' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,106,0,0.12)', border: '1px solid rgba(255,106,0,0.35)', borderRadius: '50px', padding: '6px 20px', marginBottom: '20px', fontSize: '11px', fontWeight: 700, letterSpacing: '2px', color: '#ff8533', textTransform: 'uppercase' }}>
           <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ff6a00', display: 'inline-block', boxShadow: '0 0 8px #ff6a00' }} />
-          Exclusive Custom Builder
+          Custom Stack Builder
         </div>
         <motion.h2
           initial={{ scale: 0.9, opacity: 0 }}
@@ -577,63 +577,11 @@ export default function ComboConfigurator({ products = [] }) {
           STACK LAB™
         </motion.h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: '17px', maxWidth: '560px', margin: '0 auto 25px', lineHeight: 1.6 }}>
-          Build your <strong style={{ color: '#fff' }}>own custom stack</strong>. Pick your fuel, pick your boost, mix flavors — and get an exclusive ₹30 combo discount.
+          Build your <strong style={{ color: '#fff' }}>own custom stack</strong>. Pick your fuel, pick your boost, mix flavors — and get a ₹30 combo discount.
         </p>
-
-        {/* AI Stack Builder Button */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setShowAiModal(true)}
-          style={{
-            display: 'inline-flex', alignItems: 'center', gap: '10px',
-            background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.4)',
-            color: '#00f0ff', padding: '12px 24px', borderRadius: '50px',
-            fontSize: '14px', fontWeight: 800, textTransform: 'uppercase',
-            boxShadow: '0 0 20px rgba(0, 240, 255, 0.2)', cursor: 'pointer',
-            transition: 'all 0.3s ease',
-          }}
-        >
-          ✨ GET HELP FROM AI
-        </motion.button>
       </div>
 
-      {/* ── AI Modal Overlay ── */}
-      {showAiModal && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(10px)' }}>
-          <motion.div initial={{ opacity: 0, y: 20, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} style={{ background: 'linear-gradient(145deg, #111, #0a0a0a)', border: '1px solid rgba(0,240,255,0.3)', borderRadius: '24px', width: '100%', maxWidth: '500px', padding: '30px', position: 'relative', boxShadow: '0 20px 60px rgba(0,240,255,0.15)' }}>
-            <button onClick={() => setShowAiModal(false)} style={{ position: 'absolute', top: '20px', right: '20px', background: 'transparent', border: 'none', color: '#fff', fontSize: '24px', cursor: 'pointer', opacity: 0.5 }}>×</button>
-            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '24px', color: '#00f0ff', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-              ✨ AI Stack Builder
-            </h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '14px', marginBottom: '24px' }}>Tell us your exact goals, challenges, or dietary restrictions. Our AI will select the perfect Core and Boost combo for you.</p>
-            
-            <form onSubmit={handleAiRequest}>
-              <textarea 
-                value={aiQuery} 
-                onChange={e => setAiQuery(e.target.value)} 
-                placeholder="e.g. 'I want to build lean muscle but I am lactose intolerant. I lift heavy 4x a week.'" 
-                rows={4}
-                style={{ width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '16px', color: '#fff', fontSize: '15px', resize: 'none', marginBottom: '16px', outline: 'none' }}
-                onFocus={(e) => e.target.style.borderColor = 'rgba(0,240,255,0.5)'}
-                onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.1)'}
-              />
-              
-              {aiError && <div style={{ color: '#ff4757', fontSize: '13px', marginBottom: '16px', background: 'rgba(255,71,87,0.1)', padding: '10px', borderRadius: '8px' }}>{aiError}</div>}
-              
-              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '24px' }}>
-                {["Lean muscle, no fat", "Lactose intolerant bulking", "Endurance & recovery"].map(s => (
-                  <button key={s} type="button" onClick={() => setAiQuery(s)} style={{ background: 'rgba(0,240,255,0.05)', border: '1px solid rgba(0,240,255,0.2)', color: '#00f0ff', padding: '6px 12px', borderRadius: '50px', fontSize: '12px', cursor: 'pointer' }}>{s}</button>
-                ))}
-              </div>
 
-              <button type="submit" disabled={isAiLoading || !aiQuery.trim()} style={{ width: '100%', padding: '16px', borderRadius: '12px', background: isAiLoading ? '#333' : 'linear-gradient(90deg, #00f0ff, #0080ff)', color: isAiLoading ? '#888' : '#fff', fontSize: '16px', fontWeight: 'bold', border: 'none', cursor: isAiLoading ? 'not-allowed' : 'pointer', transition: 'all 0.3s' }}>
-                {isAiLoading ? 'Analyzing Catalog...' : 'Build My Stack'}
-              </button>
-            </form>
-          </motion.div>
-        </div>
-      )}
 
       {/* ── Goal Selector ── */}
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '15px', marginBottom: '40px' }}>

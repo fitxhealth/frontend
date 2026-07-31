@@ -22,8 +22,8 @@ export default function ProductsSection({ uniqueProducts = [], commonProducts = 
 
   // Restore state from sessionStorage on mount
   useEffect(() => {
-    const savedTab = sessionStorage.getItem('lr_activeTab');
-    const savedSubCat = sessionStorage.getItem('lr_activeSubCat');
+    const savedTab = sessionStorage.getItem('fx_activeTab');
+    const savedSubCat = sessionStorage.getItem('fx_activeSubCat');
     if (savedTab) setActiveTab(savedTab);
     if (savedSubCat) setActiveSubCat(savedSubCat);
   }, []);
@@ -53,8 +53,8 @@ export default function ProductsSection({ uniqueProducts = [], commonProducts = 
     setCanScrollLeft(false);
     setCanScrollRight(true);
     if (scrollRef.current) scrollRef.current.scrollLeft = 0;
-    sessionStorage.setItem('lr_activeTab', tab);
-    sessionStorage.setItem('lr_activeSubCat', 'All');
+    sessionStorage.setItem('fx_activeTab', tab);
+    sessionStorage.setItem('fx_activeSubCat', 'All');
   };
 
   const handleSubCatChange = (cat) => {
@@ -62,7 +62,7 @@ export default function ProductsSection({ uniqueProducts = [], commonProducts = 
     setCanScrollLeft(false);
     setCanScrollRight(true);
     if (scrollRef.current) scrollRef.current.scrollLeft = 0;
-    sessionStorage.setItem('lr_activeSubCat', cat);
+    sessionStorage.setItem('fx_activeSubCat', cat);
   };
 
   const handleViewAll = () => {
@@ -164,10 +164,10 @@ export default function ProductsSection({ uniqueProducts = [], commonProducts = 
             fontFamily: 'var(--font-heading)',
             letterSpacing: '1px'
           }}>
-            {activeTab === 'unique' && 'Exclusive & Unmatched'}
+            {activeTab === 'unique' && 'Premium Selection'}
             {activeTab === 'common' && 'Premium Standards'}
             {activeTab === 'combos' && '🔥 Best Combos on the Internet'}
-            {activeTab === 'stacklab' && '🧪 Only Here. Nowhere Else.'}
+            {activeTab === 'stacklab' && '🧪 Stack Lab™'}
           </h4>
           <p style={{
             color: activeTab === 'common' ? 'var(--text-muted)' : 'var(--text-primary)',
@@ -185,7 +185,7 @@ export default function ProductsSection({ uniqueProducts = [], commonProducts = 
             {activeTab === 'combos' && "We've handpicked the most powerful supplement pairings to maximise your gains, recovery and performance. Get more, save more — these bundles are unbeatable."}
             {activeTab === 'stacklab' && (
               <>
-                <strong style={{ color: '#ff6a00' }}>Nobody can provide this feature like us.</strong> The Stack Lab™ is an exclusive custom combo builder you will <em>only</em> find here — pick your fuel, pick your boost, mix flavors, and unlock an exclusive bundle discount. No other supplement store in India offers this.
+                The Stack Lab™ is a custom combo builder — pick your fuel, pick your boost, mix flavors, and unlock a bundle discount.
               </>
             )}
           </p>
@@ -246,57 +246,6 @@ export default function ProductsSection({ uniqueProducts = [], commonProducts = 
         {/* ── Stack Lab Tab Content ── */}
         {activeTab === 'stacklab' && (
           <>
-            {/* Top row: full page link + share */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '10px' }}>
-              <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
-                Want a dedicated page?
-              </div>
-              <div style={{ display: 'flex', gap: '10px' }}>
-                <button
-                  onClick={async () => {
-                    const url = 'https://www.getfitxhealth.in/stack-lab';
-                    const text = '🧪 Build your own custom supplement stack at FitX Health Stack Lab™ — exclusively here! Pick your fuel, boost and flavors.';
-                    if (navigator.share) {
-                      try { await navigator.share({ title: 'Stack Lab™', text, url }); return; } catch (_) {}
-                    }
-                    try { await navigator.clipboard.writeText(url); alert('Link copied!'); } catch (_) { window.prompt('Copy this link:', url); }
-                  }}
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', borderRadius: '50px', fontSize: '12px', fontWeight: 700, cursor: 'pointer', background: 'rgba(255,106,0,0.08)', border: '1px solid rgba(255,106,0,0.25)', color: '#ff8533' }}
-                >
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-                  Share
-                </button>
-                <Link
-                  href="/stack-lab"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', borderRadius: '50px', fontSize: '12px', fontWeight: 700, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', color: '#fff', textDecoration: 'none' }}
-                >
-                  Open Full Page ↗
-                </Link>
-              </div>
-            </div>
-
-            {/* Exclusive Banner */}
-            <div style={{
-              marginBottom: '32px',
-              padding: '18px 24px',
-              background: 'linear-gradient(135deg, rgba(255,106,0,0.12) 0%, rgba(255,179,71,0.06) 100%)',
-              border: '1px solid rgba(255,106,0,0.3)',
-              borderRadius: '12px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '16px',
-              flexWrap: 'wrap'
-            }}>
-              <div style={{ fontSize: '32px' }}>🔒</div>
-              <div>
-                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '15px', color: '#ff6a00', fontWeight: 900, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '4px' }}>
-                  Exclusively Available Here
-                </div>
-                <div style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.5 }}>
-                  You will <strong style={{ color: '#fff' }}>only get this feature here</strong>. No other supplement store in India offers a custom stack builder like this. Mix, match, and save — it&apos;s built just for you.
-                </div>
-              </div>
-            </div>
             <ComboConfigurator products={allProducts} />
           </>
         )}

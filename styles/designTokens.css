@@ -1,0 +1,23 @@
+:root {
+  --bg-primary: #050505;
+  --bg-secondary: #111111;
+  --bg-card: #111111;
+  --bg-card-hover: #181818;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E0E0E0;
+  --text-muted: #BEBEBE;
+  --accent: #E50914;
+  --accent-light: #C40018;
+  --accent-primary: #E50914;
+  --accent-secondary: #C40018;
+  --accent-glow: rgba(229, 9, 20, 0.3);
+  --accent-glow-strong: rgba(229, 9, 20, 0.5);
+  --green: #2ecc40;
+  --red: #E50914;
+  --border: #252525;
+  --radius: 4px;
+  --radius-lg: 8px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --max-width: 1440px;
+}

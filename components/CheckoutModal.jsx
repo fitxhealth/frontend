@@ -6,7 +6,7 @@ import { createOrder, getAddresses } from '@/lib/api';
 import { orderOnWhatsApp } from '@/lib/whatsapp';
 import PrivacyModal from './PrivacyModal';
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '917003714398';
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '918777739621';
 const GOOGLE_SHEET_URL = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL || 'https://script.google.com/macros/s/AKfycbwWTolkQqA0LXgLwTYj8vnWMoEHQeonlhCc7-8RDEXgnGzZG6C22wK_RInl6Gkh0t3o8A/exec';
 
 export default function CheckoutModal({ isOpen, onClose, fomoSettings = {} }) {
@@ -142,7 +142,7 @@ export default function CheckoutModal({ isOpen, onClose, fomoSettings = {} }) {
       // Google Sheets logging (fire-and-forget)
       if (GOOGLE_SHEET_URL) {
         fetch(GOOGLE_SHEET_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ timestamp: new Date().toLocaleString(), name, phone, email, address, coupon, total, items: items.map((i) => `${i.name} (${i.flavorName}) x${i.qty}`).join(' | ') }),
+          body: JSON.stringify({ brand: 'FitX Health', timestamp: new Date().toLocaleString(), name, phone, email, address, coupon, total, items: items.map((i) => `${i.name} (${i.flavorName}) x${i.qty}`).join(' | ') }),
         }).catch(() => {});
       }
 

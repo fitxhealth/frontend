@@ -1,29 +1,12 @@
-/* ===== FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import '../styles/designTokens.css';
 
-/* ===== CSS VARIABLES ===== */
+/* ===== FONTS ===== */
+/* Fonts are loaded via next/font/google in layout.jsx */
+
+/* ===== CSS VARIABLES (Fallback/Overrides) ===== */
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --bg-card: #161616;
-  --bg-card-hover: #1c1c1c;
-  --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
-  --text-muted: #666666;
-  --accent: #ff6a00;
-  --accent-light: #ff8533;
-  --accent-glow: rgba(255, 106, 0, 0.3);
-  --accent-glow-strong: rgba(255, 106, 0, 0.5);
-  --green: #2ecc40;
-  --red: #e74c3c;
-  --border: #222222;
-  --radius: 8px;
-  --radius-lg: 12px;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  --transition: 0.3s ease;
-  --font-heading: 'Oswald', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --max-width: 1440px;
+  --font-heading: var(--font-heading, 'Outfit', sans-serif);
+  --font-body: var(--font-body, 'Inter', sans-serif);
 }
 
 /* ===== RESET ===== */

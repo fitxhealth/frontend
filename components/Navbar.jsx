@@ -43,6 +43,18 @@ export default function Navbar({ cartCount = 0, onSearchOpen, onCartOpen, onAuth
     boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.5)' : 'none',
   };
 
+  const handleScrollTo = (e, targetId) => {
+    closeMenu();
+    if (pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById(targetId);
+      if (element) {
+        const y = element.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <>
       {/* MOBILE OVERLAY */}
@@ -67,7 +79,7 @@ export default function Navbar({ cartCount = 0, onSearchOpen, onCartOpen, onAuth
             }}
           >
             <Image
-              src="/images/logo.webp"
+              src="/images/logo-removebg.png"
               alt="FitX Health"
               width={130}
               height={130}
@@ -79,11 +91,10 @@ export default function Navbar({ cartCount = 0, onSearchOpen, onCartOpen, onAuth
 
           {/* Desktop Nav Links */}
           <ul className={`nav-menu${mobileOpen ? ' active' : ''}`} id="navMenu">
-            <li><a href="/" className="active" onClick={(e) => { closeMenu(); if (pathname === '/') { e.preventDefault(); window.location.href = '/'; } }}>Home</a></li>
-            <li><Link href="/#products" onClick={closeMenu}>Shop</Link></li>
-            <li><Link href="/#products" onClick={closeMenu}>Categories</Link></li>
-            <li><Link href="/#why-choose" onClick={closeMenu}>About</Link></li>
-            <li><Link href="/#contact" onClick={closeMenu}>Contact</Link></li>
+            <li><a href="/" className="active" onClick={(e) => { closeMenu(); if (pathname === '/') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); } }}>Home</a></li>
+            <li><Link href="/#products" onClick={(e) => handleScrollTo(e, 'products')}>Shop</Link></li>
+            <li><Link href="/#products" onClick={(e) => handleScrollTo(e, 'products')}>Categories</Link></li>
+            <li><Link href="/#contact" onClick={(e) => handleScrollTo(e, 'contact')}>Contact</Link></li>
           </ul>
 
           {/* Nav Icons */}

@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
     title: `${product.name} | FitX Health`,
     description: product.description
       ? product.description.slice(0, 155)
-      : `Buy ${product.name} at the best price — ₹${price.toLocaleString()}. 100% authentic, fast delivery. Shop now at FitX Health.`,
+      : `Buy ${product.name} at the best price — ₹${price.toLocaleString()}. 100% authentic. Shop now at FitX Health.`,
     alternates: {
       canonical: `https://www.getfitxhealth.in/product/${slug}`,
     },
@@ -142,7 +142,7 @@ export default async function ProductPage({ params }) {
               name: product.name,
               description:
                 product.description ||
-                `Buy ${product.name} at FitX Health — India's trusted supplement store. 100% authentic, fast delivery.`,
+                `Buy ${product.name} at FitX Health — India's trusted supplement store. 100% authentic.`,
               image: absoluteImage,
               sku: product.sku || product._id || product.slug,
               brand: { '@type': 'Brand', name: 'FitX Health' },

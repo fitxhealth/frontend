@@ -1,13 +1,17 @@
+import { Outfit, Inter } from 'next/font/google';
 import './globals.css';
 import AppShell from '@/components/AppShell';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
+const outfit = Outfit({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700', '800', '900'], variable: '--font-heading' });
+const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'], variable: '--font-body' });
+
 const SITE_URL = 'https://www.getfitxhealth.in';
 
 export const metadata = {
-  title: 'FitX Health | #WEARETHEfitxhealth',
+  title: 'FitX Health | Engineered For Elite Performance',
   description:
-    "FitX Health — Premium fitness supplements. We don't just sell supplements, we LIVE the results. Shop Whey Protein, Mass Gainer, Creatine and more.",
+    "FitX Health — Premium fitness supplements. Stop guessing, start growing. Shop 100% authentic Whey Protein, Mass Gainer, Creatine and more.",
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: '/',
@@ -20,16 +24,16 @@ export const metadata = {
     apple: '/images/favicon.png',
   },
   openGraph: {
-    title: 'FitX Health | #WEARETHEfitxhealth',
-    description: "FitX Health — Premium fitness supplements. We don't just sell supplements, we LIVE the results.",
+    title: 'FitX Health | Engineered For Elite Performance',
+    description: "FitX Health — Premium fitness supplements. Stop guessing, start growing.",
     url: SITE_URL,
     siteName: 'FitX Health',
     images: [
       {
-        url: '/images/logo.webp',
+        url: '/images/og-image.webp',
         width: 1200,
         height: 630,
-        alt: 'FitX Health Logo',
+        alt: 'FitX Health Promotion',
       },
     ],
     locale: 'en_IN',
@@ -37,17 +41,17 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FitX Health | #WEARETHEfitxhealth',
-    description: "FitX Health — Premium fitness supplements.",
-    images: ['/images/logo.webp'],
+    title: 'FitX Health | Engineered For Elite Performance',
+    description: "FitX Health — Premium fitness supplements. Stop guessing, start growing.",
+    images: ['/images/og-image.webp'],
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
       <head>
-        <link rel="preload" href="/images/logo.webp" as="image" />
+        <link rel="preload" href="/images/logo-removebg.png" as="image" />
         <link rel="preload" href="/images/hero-athlete.webp" as="image" />
       </head>
       <body>

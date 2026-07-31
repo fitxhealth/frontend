@@ -7,7 +7,7 @@ import ComboConfigurator from '@/components/ComboConfigurator';
 export default function StackLabPage({ products = [] }) {
   const [shareStatus, setShareStatus] = useState('idle'); // 'idle' | 'copied' | 'shared'
   const SHARE_URL = 'https://www.getfitxhealth.in/stack-lab';
-  const SHARE_TEXT = '🧪 Build your own custom supplement stack at FitX Health Stack Lab™ — exclusively available here! Pick your fuel, boost, and flavors. Only at FitX Health.';
+  const SHARE_TEXT = '🧪 Build your own custom supplement stack at FitX Health Stack Lab™. Pick your fuel, boost, and flavors.';
 
   const handleShare = async () => {
     // Try native Web Share API (mobile browsers, Safari)
@@ -77,17 +77,17 @@ export default function StackLabPage({ products = [] }) {
           </div>
 
           {/* Badge */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,106,0,0.1)', border: '1px solid rgba(255,106,0,0.3)', borderRadius: '50px', padding: '6px 18px', marginBottom: '20px', fontSize: '11px', fontWeight: 700, letterSpacing: '2px', color: '#ff8533', textTransform: 'uppercase' }}>
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ff6a00', display: 'inline-block', boxShadow: '0 0 8px #ff6a00' }} />
-            Exclusively At FitX Health
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(229, 9, 20, 0.1)', border: '1px solid rgba(229, 9, 20, 0.3)', borderRadius: '50px', padding: '6px 18px', marginBottom: '20px', fontSize: '11px', fontWeight: 700, letterSpacing: '2px', color: '#E50914', textTransform: 'uppercase' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#E50914', display: 'inline-block', boxShadow: '0 0 8px #E50914' }} />
+            Build Your Stack
           </div>
 
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(42px, 8vw, 80px)', textTransform: 'uppercase', letterSpacing: '5px', background: 'linear-gradient(135deg,#ff6a00 0%,#ffb347 50%,#fff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', lineHeight: 1, marginBottom: '16px' }}>
+          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(42px, 8vw, 80px)', textTransform: 'uppercase', letterSpacing: '5px', color: 'var(--text-primary)', lineHeight: 1, marginBottom: '16px' }}>
             🧪 Stack Lab™
           </h1>
 
           <p style={{ color: 'var(--text-secondary)', fontSize: '17px', maxWidth: '560px', margin: '0 auto 28px', lineHeight: 1.6 }}>
-            Build your <strong style={{ color: '#fff' }}>own custom supplement stack</strong>. Pick your fuel, pick your boost, mix flavors — and get an exclusive ₹30 combo discount. <span style={{ color: '#ff6a00', fontWeight: 700 }}>Nobody else offers this.</span>
+            Build your <strong style={{ color: '#fff' }}>own custom supplement stack</strong>. Pick your fuel, pick your boost, mix flavors — and get a bundle discount.
           </p>
 
           {/* Share Buttons Row */}
@@ -155,30 +155,7 @@ export default function StackLabPage({ products = [] }) {
         </div>
       </section>
 
-      {/* ── Exclusive Banner ── */}
-      <div className="container" style={{ paddingTop: '40px' }}>
-        <div style={{
-          marginBottom: '32px',
-          padding: '18px 24px',
-          background: 'linear-gradient(135deg, rgba(255,106,0,0.1) 0%, rgba(255,179,71,0.05) 100%)',
-          border: '1px solid rgba(255,106,0,0.25)',
-          borderRadius: '12px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '16px',
-          flexWrap: 'wrap',
-        }}>
-          <div style={{ fontSize: '30px' }}>🔒</div>
-          <div>
-            <div style={{ fontFamily: 'var(--font-heading)', fontSize: '14px', color: '#ff6a00', fontWeight: 900, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '4px' }}>
-              Only Here. Nowhere Else.
-            </div>
-            <div style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.5 }}>
-              No other supplement store in India offers a custom stack builder like this.{' '}
-              <strong style={{ color: '#fff' }}>Mix, match, and save</strong> — built exclusively for you at FitX Health.
-            </div>
-          </div>
-        </div>
+
 
         {/* ── The Configurator ── */}
         <ComboConfigurator products={products} />

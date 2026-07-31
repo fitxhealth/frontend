@@ -89,6 +89,7 @@ export default function Dashboard({ token }) {
     showToast('Syncing to Google Sheets...', 'info');
     try {
       const payload = {
+        brand: "FitX Health",
         action: "dashboard_export",
         timestamp: new Date().toLocaleString(),
         metrics: performanceList.map(p => ({

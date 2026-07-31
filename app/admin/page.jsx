@@ -129,7 +129,7 @@ export default function AdminPage() {
       {/* SIDEBAR */}
       <aside className={`sidebar ${sidebarActive ? 'active' : ''}`}>
         <div className="sidebar-logo">
-          <img src="/images/logo.webp" alt="Logo" style={{ height: '40px' }} />
+          <img src="/images/logo-removebg.png" alt="Logo" style={{ height: '40px' }} />
         </div>
         <nav className="sidebar-nav">
           <a 

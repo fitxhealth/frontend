@@ -20,7 +20,7 @@ function getProductPrice(product, sizeIdx, flavorIdx) {
 }
 
 function getProductImage(product, flavorIdx) {
-  if (!product) return '/images/logo.webp';
+  if (!product) return '/images/logo-removebg.png';
   let img = product.flavors?.[flavorIdx]?.image || product.flavors?.[0]?.image || `/images/${product.slug}.webp`;
   if (!img) return img;
   if (img.startsWith('http')) {
