@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
+const BACKEND_URL = 'https://backend-production-2f402.up.railway.app/api';
+
 const nextConfig = {
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'fitx-health-backend-production.up.railway.app',
+        hostname: 'backend-production-2f402.up.railway.app',
       },
       {
         protocol: 'https',
@@ -18,7 +20,7 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL || 'https://backend-production-2f402.up.railway.app/api'}/:path*`,
+        destination: `${BACKEND_URL}/:path*`,
       },
     ];
   },
@@ -29,7 +31,7 @@ const nextConfig = {
       { key: 'X-Content-Type-Options', value: 'nosniff' },
       { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
       { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
-      { key: 'Content-Security-Policy-Report-Only', value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://res.cloudinary.com https://fitx-health-backend-production.up.railway.app https://www.google-analytics.com; connect-src 'self' https://fitx-health-backend-production.up.railway.app https://www.google-analytics.com https://region1.google-analytics.com" }
+      { key: 'Content-Security-Policy-Report-Only', value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://res.cloudinary.com https://backend-production-2f402.up.railway.app https://www.google-analytics.com; connect-src 'self' https://backend-production-2f402.up.railway.app https://www.google-analytics.com https://region1.google-analytics.com" }
     ];
 
     return [
