@@ -2,7 +2,7 @@ import { API_BASE } from '@/lib/api';
 
 export default async function sitemap() {
   // Replace with your actual live domain, or use the environment variable
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.getfitxhealth.in';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fitxhealth.in';
   const apiUrl = API_BASE;
 
   let products = [];

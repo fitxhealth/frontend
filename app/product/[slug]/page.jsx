@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
       ? product.description.slice(0, 155)
       : `Buy ${product.name} at the best price — ₹${price.toLocaleString()}. 100% authentic. Shop now at FitX Health.`,
     alternates: {
-      canonical: `https://www.getfitxhealth.in/product/${slug}`,
+      canonical: `https://www.fitxhealth.in/product/${slug}`,
     },
     openGraph: {
       title: `${product.name} | FitX Health`,
@@ -123,7 +123,7 @@ export default async function ProductPage({ params }) {
           {/* JSON-LD Structured Data for Google Shopping / Rich Results */}
           {(() => {
             // Build an absolute image URL (Google requires https://)
-            const BASE_URL = 'https://www.getfitxhealth.in';
+            const BASE_URL = 'https://www.fitxhealth.in';
             let rawImage = product.flavors?.[0]?.image || `/images/${product.slug}.webp`;
             if (rawImage.startsWith('http://res.cloudinary.com/')) {
               rawImage = rawImage.replace('http://', 'https://');

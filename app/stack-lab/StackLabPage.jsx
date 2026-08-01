@@ -6,7 +6,7 @@ import ComboConfigurator from '@/components/ComboConfigurator';
 
 export default function StackLabPage({ products = [] }) {
   const [shareStatus, setShareStatus] = useState('idle'); // 'idle' | 'copied' | 'shared'
-  const SHARE_URL = 'https://www.getfitxhealth.in/stack-lab';
+  const SHARE_URL = 'https://www.fitxhealth.in/stack-lab';
   const SHARE_TEXT = '🧪 Build your own custom supplement stack at FitX Health Stack Lab™. Pick your fuel, boost, and flavors.';
 
   const handleShare = async () => {

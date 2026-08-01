@@ -6,7 +6,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 const outfit = Outfit({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700', '800', '900'], variable: '--font-heading' });
 const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'], variable: '--font-body' });
 
-const SITE_URL = 'https://www.getfitxhealth.in';
+const SITE_URL = 'https://www.fitxhealth.in';
 
 export const metadata = {
   title: 'FitX Health | Engineered For Elite Performance',

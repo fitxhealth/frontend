@@ -10,13 +10,13 @@ export const metadata = {
   openGraph: {
     title: 'Stack Lab — Build Your Custom Stack | FitX Health',
     description: 'Custom supplement stack builder at FitX Health.',
-    url: 'https://www.getfitxhealth.in/stack-lab',
+    url: 'https://www.fitxhealth.in/stack-lab',
     siteName: 'FitX Health',
     images: [{ url: '/images/logo-removebg.png', width: 1200, height: 630, alt: 'Stack Lab - FitX Health' }],
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.getfitxhealth.in/stack-lab',
+    canonical: 'https://www.fitxhealth.in/stack-lab',
   },
   twitter: {
     card: 'summary_large_image',
@@ -24,7 +24,7 @@ export const metadata = {
     description: 'Custom supplement stack builder at FitX Health.',
   },
   alternates: {
-    canonical: 'https://www.getfitxhealth.in/stack-lab',
+    canonical: 'https://www.fitxhealth.in/stack-lab',
   },
 };
 

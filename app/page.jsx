@@ -10,7 +10,7 @@ export const metadata = {
   description:
     "FitX Health — Premium fitness supplements. Shop authentic Whey Protein, Mass Gainer, Creatine and more.",
   alternates: {
-    canonical: 'https://www.getfitxhealth.in',
+    canonical: 'https://www.fitxhealth.in',
   },
 };
 
@@ -26,10 +26,10 @@ export default async function HomePage() {
     '@graph': [
       {
         '@type': 'Organization',
-        '@id': 'https://www.getfitxhealth.in/#organization',
+        '@id': 'https://www.fitxhealth.in/#organization',
         name: 'FitX Health',
-        url: 'https://www.getfitxhealth.in',
-        logo: 'https://www.getfitxhealth.in/images/logo-removebg.png',
+        url: 'https://www.fitxhealth.in',
+        logo: 'https://www.fitxhealth.in/images/logo-removebg.png',
         sameAs: [
           'https://www.instagram.com/getfitxhealth',
           'https://www.facebook.com/getfitxhealth'
@@ -37,17 +37,17 @@ export default async function HomePage() {
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://www.getfitxhealth.in/#website',
-        url: 'https://www.getfitxhealth.in',
+        '@id': 'https://www.fitxhealth.in/#website',
+        url: 'https://www.fitxhealth.in',
         name: 'FitX Health',
         publisher: {
-          '@id': 'https://www.getfitxhealth.in/#organization'
+          '@id': 'https://www.fitxhealth.in/#organization'
         },
         potentialAction: {
           '@type': 'SearchAction',
           target: {
             '@type': 'EntryPoint',
-            urlTemplate: 'https://www.getfitxhealth.in/search?q={search_term_string}'
+            urlTemplate: 'https://www.fitxhealth.in/search?q={search_term_string}'
           },
           'query-input': 'required name=search_term_string'
         }
