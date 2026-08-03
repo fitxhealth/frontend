@@ -2,13 +2,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 import ProductsSection from '@/components/ProductsSection';
+import WhyChooseUs from '@/components/WhyChooseUs';
+import GoalSelector from '@/components/GoalSelector';
+import ExpandedTestimonials from '@/components/ExpandedTestimonials';
+import FaqSection from '@/components/FaqSection';
 import { getProducts, getCombos } from '@/lib/api';
 
 
 export const metadata = {
   title: 'FitX Health | Engineered For Elite Performance',
   description:
-    "FitX Health — Premium fitness supplements. Shop authentic Whey Protein, Mass Gainer, Creatine and more.",
+    "FitX Health — Premium fitness supplements at honest prices. Shop authentic Whey Protein, Mass Gainer, Creatine and more.",
   alternates: {
     canonical: 'https://www.fitxhealth.in',
   },
@@ -61,7 +65,6 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* PRE-LAUNCH OVERLAY placeholder — wired via AppShell/useSettings in layout */}
 
       {/* HERO SECTION REDESIGNED */}
       <section className="hero-redesign" id="hero" style={{ position: 'relative', minHeight: '90vh', display: 'flex', alignItems: 'center', overflow: 'hidden', backgroundColor: 'var(--bg-primary)' }}>
@@ -79,13 +82,13 @@ export default async function HomePage() {
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <div className="hero-redesign-content" style={{ maxWidth: '650px', padding: '100px 0' }}>
             <span style={{ display: 'inline-block', padding: '6px 12px', background: 'var(--accent-primary)', color: '#fff', fontSize: '12px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '20px', borderRadius: '4px' }}>
-              Elite Performance Fuel
+              Elite Performance Fuel • Honest Value
             </span>
             <h1 style={{ fontSize: 'clamp(40px, 6vw, 72px)', lineHeight: 1.1, fontWeight: 800, textTransform: 'uppercase', marginBottom: '24px', letterSpacing: '-1px' }}>
               Push Your Limits. <br/><span style={{ color: 'var(--accent-primary)' }}>Define Your Legacy.</span>
             </h1>
             <p style={{ fontSize: '18px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '40px', maxWidth: '500px' }}>
-              Scientifically-backed, 100% authentic supplements curated for athletes who demand the absolute best from their bodies.
+              Scientifically-backed, 100% authentic supplements curated for athletes who demand high-tier quality at fair, accessible prices.
             </p>
             
             <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -106,11 +109,17 @@ export default async function HomePage() {
                 <strong style={{ display: 'block', fontSize: '24px', color: 'var(--accent-primary)' }}>Lab</strong>
                 <span style={{ fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>Tested</span>
               </div>
-
+              <div>
+                <strong style={{ display: 'block', fontSize: '24px', color: 'var(--accent-primary)' }}>Direct</strong>
+                <span style={{ fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>Pricing</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* GOAL GUIDE / REGIMEN FINDER */}
+      <GoalSelector />
 
       {/* PRODUCTS SECTION — SSR data passed to client component */}
       <ProductsSection
@@ -119,10 +128,10 @@ export default async function HomePage() {
         combos={combos}
       />
 
+      {/* WHY CHOOSE FITX HEALTH & VALUE COMPARISON */}
+      <WhyChooseUs />
 
-
-
-      {/* STATS */}
+      {/* STATS BAR */}
       <section className="stats" id="stats">
         <div className="container">
           <div className="stats-grid">
@@ -166,34 +175,11 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* EXPANDED TESTIMONIALS & COMMUNITY REVIEWS */}
+      <ExpandedTestimonials />
 
-
-      {/* TESTIMONIALS */}
-      <section className="testimonials" id="testimonials">
-        <div className="container">
-          <p className="section-label">Testimonials</p>
-          <h2 className="section-title">What Our Customers Say</h2>
-          <div className="testimonials-grid">
-            {[
-              { name: 'Vikram S.', role: 'Bodybuilder', initial: 'V', text: '"FitX Health has been a game changer for my prep. The authenticity of the supplements is guaranteed, and the delivery is always spot on."' },
-              { name: 'Anjali Desai', role: 'Crossfit Athlete', initial: 'A', text: '"I love the custom stack builder! It helped me figure out exactly what I needed for endurance. Truly a premium experience."' },
-              { name: 'Siddharth Roy', role: 'Gym Enthusiast', initial: 'S', text: '"Finally a reliable supplement store. The products are genuine, the prices are fair, and the results speak for themselves."' },
-            ].map((t) => (
-              <div className="testimonial-card" key={t.name}>
-                <div className="testimonial-stars">★★★★★</div>
-                <p className="testimonial-text">{t.text}</p>
-                <div className="testimonial-author">
-                  <div className="testimonial-avatar">{t.initial}</div>
-                  <div>
-                    <div className="testimonial-name">{t.name}</div>
-                    <div className="testimonial-role">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* FAQ SECTION */}
+      <FaqSection />
 
       {/* FOOTER BENEFITS */}
       <div className="footer-benefits">
@@ -220,6 +206,33 @@ export default async function HomePage() {
               <div className="benefit-text">
                 <h4>Secure Payments</h4>
                 <p>100% secure payments</p>
+              </div>
+            </div>
+
+            <div className="benefit-item">
+              <div className="benefit-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div className="benefit-text">
+                <h4>100% Authentic</h4>
+                <p>BATCH VERIFIED</p>
+              </div>
+            </div>
+
+            <div className="benefit-item">
+              <div className="benefit-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                  <path d="M12 6v2" />
+                  <path d="M12 16v2" />
+                </svg>
+              </div>
+              <div className="benefit-text">
+                <h4>Honest Pricing</h4>
+                <p>DIRECT-TO-ATHLETE</p>
               </div>
             </div>
           </div>
@@ -257,3 +270,4 @@ export default async function HomePage() {
     </>
   );
 }
+
