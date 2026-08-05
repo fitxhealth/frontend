@@ -1,23 +1,18 @@
-import { API_BASE } from '@/lib/api';
+import { getProducts, getCombos } from '@/lib/api';
 
 export default async function sitemap() {
-  // Replace with your actual live domain, or use the environment variable
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fitxhealth.in';
-  const apiUrl = API_BASE;
 
   let products = [];
   let combos = [];
 
   try {
-    // Fetch all products
-    const productsRes = await fetch(`${apiUrl}/products`, { next: { revalidate: 3600 } }); // Cache for 1 hour
-    const productsData = await productsRes.json();
-    if (productsData.success) products = productsData.data;
-
-    // Fetch all combos
-    const combosRes = await fetch(`${apiUrl}/combos`, { next: { revalidate: 3600 } });
-    const combosData = await combosRes.json();
-    if (combosData.success) combos = combosData.data;
+    const [fetchedProducts, fetchedCombos] = await Promise.all([
+      getProducts(),
+      getCombos(),
+    ]);
+    products = fetchedProducts || [];
+    combos = fetchedCombos || [];
   } catch (error) {
     console.error('Error fetching data for sitemap:', error);
   }
@@ -32,7 +27,7 @@ export default async function sitemap() {
 
   // Map combos to sitemap URLs
   const comboUrls = combos.map((combo) => ({
-    url: `${baseUrl}/product/${combo.comboSlug}`,
+    url: `${baseUrl}/product/${combo.comboSlug || combo.slug}`,
     lastModified: combo.updatedAt ? new Date(combo.updatedAt) : new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,
